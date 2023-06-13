@@ -1,20 +1,2 @@
 #!/bin/bash
-
-# Initialize counter variable
-count=0
-
-# Loop through all directories and sub-directories in current directory
-for dir in $(find . -type d)
-do
-  # Check if directory is hidden or is the current/parent directory
-  if [[ $dir == .* || $dir == "." || $dir == ".." ]]
-  then 
-    continue
-  fi
-
-  # If directory is not hidden and is not the current/parent directory, increment counter
-  ((count++))
-done
-
-# Print the final count of directories and sub-directories
-echo $count
+find . -type d -not -name | wc -l
